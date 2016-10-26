@@ -9,20 +9,19 @@ The evaluation metrics I used are: Gross conversion, Retention, and Net conversi
 
 For each metric:
 
-Number of cookies: I chose it as invariant metric because when users browse the webpage, he/she already has one unique browser id. Thus it is independent.
+Number of cookies: I chose it as invariant metric because when users browse the webpage, he/she already has one unique browser id. Thus it is independent and it will be consistent in this experiment. In the meanwhile, an invariant metric cannot both be an evaluation metric since it is dependent on the experiment.
 
-Number of user-ids: user-ids are people who registered the course. Thus it depends on the people who enrolled the free trial. So I didn't choose it as invariant metric.
-I didn't choose it to be evaluation metric because the user-ids may be screwed from the experiment group.
+Number of user-ids: user-ids are people who enrolled the course. Thus it will be affected by the experiment between the experiment and control groups. It is not chosen as evaluation metric because it is a count, instead of a percentage which can be further normalized or standardized.
 
-Number of clicks: I chose it as invariant metric because people need to click, then he/she can see the content/experiment.
+Number of clicks: I chose it as invariant metric because people need to click, then he/she can see the content/experiment. Thus it is independent from the experiment.
 
-Click-through-probability: It could be a good invariant metric but I prefer the pure numbers instead of probability for invariant metric.
+Click-through-probability: It could be a good invariant metric but I didn't choose it because I personally think the number of cookies and number of clicks are highly correlated with the click-through-probability.
 
-Gross conversion: I choose it as evaluation metric because user-ids are dependent on the effect of the experiment and divided by the number of unique cookies can prevent from unbiased/unbalanced data.
+Gross conversion: I choose it as evaluation metric because user-ids are dependent on the effect of the experiment. And in the alternative hypothesis, we expect to see lower value in the experiment gorup, because we hypothesize that people without enough time per week will not enroll the course.
 
-Retention: I didn't use it since the experiment might affect users who is in free trial.
+Retention: This value can be a candidate of evaluation metric because it dependents on the experiment. This value is expected to be higher in the experiment group because people need to have more time commitment per week to enroll in the course, and thus make their first payment. But I feel it is overlapped with Gross conversion and Net conversion, I didn't end up choosing it as the value.
 
-Net conversion: same reason as above -- the number of people enrolled in the free trail devided by the number of unique cookies can prevent from unbalanced data.
+Net conversion: I chose it as evaluation metric because it is affected by the experiment. In the experiment group, since most people can commit enough hours per week, and are more toward stay (make the first payment). So, this value should be increased, or at least not decreased.
 
 
 ### Measuring Standard Deviation
@@ -30,19 +29,19 @@ Goss conversion: 0.0202
 
 Net conversion: 0.0156
 
-Gross conversion, retention, and net conversion are percentages, I treat it as unit of diversion. 
+Gross conversion, and net conversion are percentages, they are using the number of cookies as their denomiators. I treat them as unit of diversion. And analytical estimate is comparable to the empirical variation.
 
 ### Sizing
 #### Number of sample vs. power
 
-I did not use the Bonferroni correction. And I used Gross conversion, Retention, and Net conversion as evaluation metrics.
+I did not use the Bonferroni correction. And I used Gross conversion, and Net conversion as evaluation metrics.
 I would need 685325 pageviews for a test of alpha = 0.05 and beta = 0.2.
 
 #### Duration vs. Exposure
 
-Since this experiment won't jeopardise Udacity's current business, I would divert 100% to this experiment. And would roughly need 18 days to complete the experiment.
+I chose to set 0.8 (80%) as the number of fraction to be exposed. Since 80% will be exposed and the subsequent impact will be minimum. It will not bring too much potential harm to Udacity's business. Furthermore, the experiment itself is not too risky because it will only be a popup message. Nothing too sensative.
 
-Since I don't see any downside or side effects of this diversion.
+For the duration, since I need 685325 page views in total, and 40000 people, with 80%, roughly 22 days will yield the desired results.
 
 ## Experiment Analysis
 ### Sanity Checks
@@ -72,24 +71,35 @@ Net conversion: p-value - 0.6776. It is not significant.
 
 #### Summary
 
-I didn't use Bonferroni correction since there aren't too many variables to test. If we want to further segment it, we can incorporate Bonferroni correction.
+I didn't use Bonferroni correction since there aren't too many variables to test. Moreover, because the metrics I used are correlated, Bonferroni correction is not a good fit for this experiment.
+
+If we use more number of metrics, we are more likely to make type I error (falsely reject the null hypothesis when the null is true. So by introducing the Bonferroni correction, we can reduce this error by reducing alpha. 
+
+However, if we reduce the type I error, we are increasing the Type II error -- accepting null, when null is false. Because of our experiment, we don't want to increase Type II error. So I didn't use Bonferroni correction.
+
+From the result: significant in Gross conversion, but insignificant in Net conversion, it means that the popup message did have impact on the students' decision to register the courses, but it didn't end up having to much students enrolled to make their payment for the course.
 
 ### Recommendation
 
-Since Net conversion has 0 in the confidence interval, it is not significant. And it contains negative values, it might cause some warry regarding carry this experiment. However, we can redesign some other designs before experiment.
+Since Net conversion has 0 in the confidence interval, it is not significant. And it contains negative values, it might cause some warry regarding carry this experiment. However, we can redesign some other factors before experiment.
+
+Simply based on this experiment, I wouldn't recommend the new feature. For the Gross conversion, only people who are willing to commit more time per week are more toward paying for the courses. This experiment could cause less students to view the free courses. From Net conversion, the new feature doesn't attract more students to pay after their free courses. Besides, the negative values in the confidence intervals might be a potential concern for Udacity's profit.
 
 ## Follow-Up Experiment
 
-Udacity was not extremely clear when first time users sees it, since it is not like most mooc platform: by offer a codesigned nanodegree. But it charges by month, which would intimate some users, probably not even want to initiate the registration.
+Udacity's charging policy is a potential concern for students to pay for courses even register. My suggestion is to show Udacity's promotion policy ahead of user registration (such as 50% money back if finished within 1 year). If users can be aware of all the incentives ahead of payment, or even registration, they might be more urged to enroll.
 
-So my null hypothesis is by showing a detailed promotion/offers (such as get half back when completing within one year) will not statistically increase Retention.
+So my null hypothesis is by showing a detailed promotion/offers (such as get half back when completing within one year) will not statistically increase net conversion.
 
-The unit of diversion is user-id, because we want to track if promotions will attrack more users to register.
+The alternate hypothesis is by showing a promotions will increase the net conversion significantly.
 
-The invariant metric is number of people registered.
+This experiment will be posed to students in two groups: in the experiment group, the popup message of promotions will be shown to the experiment group, whereas the control group, no messages will be shown.
 
-The evaluation metric I chose is Retention.
+The unit of diversion is user-id, because we want to track if promotions will attrack more users to pay.
 
-If the result comes back positive, and significant both practically and statistically, we are safe to launch the new feature.
+The invariant metric is number of cookies, because people will not see any messages before they browse the page.
 
+The evaluation metric I chose is Retention because it can be measured what is the ratio of the number of users who enrolled, make their first payment. 
+
+I hope to see statistically significant number of increase in the experiment group
 
