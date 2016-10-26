@@ -71,7 +71,7 @@ Net conversion: p-value - 0.6776. It is not significant.
 
 #### Summary
 
-I didn't use Bonferroni correction since there aren't too many variables to test. Moreover, because the metrics I used are correlated, Bonferroni correction is not a good fit for this experiment.
+I didn't use Bonferroni correction since there aren't too many variables to test. Besides our acceptance criteria need significance for each evaluation metric, Bonferroni correction is not a good fit for this experiment.
 
 If we use more number of metrics, we are more likely to make type I error (falsely reject the null hypothesis when the null is true. So by introducing the Bonferroni correction, we can reduce this error by reducing alpha. 
 
@@ -83,13 +83,13 @@ From the result: significant in Gross conversion, but insignificant in Net conve
 
 Since Net conversion has 0 in the confidence interval, it is not significant. And it contains negative values, it might cause some warry regarding carry this experiment. However, we can redesign some other factors before experiment.
 
-Simply based on this experiment, I wouldn't recommend the new feature. For the Gross conversion, only people who are willing to commit more time per week are more toward paying for the courses. This experiment could cause less students to view the free courses. From Net conversion, the new feature doesn't attract more students to pay after their free courses. Besides, the negative values in the confidence intervals might be a potential concern for Udacity's profit.
+Simply based on this experiment, I wouldn't recommend the new feature. For the Gross conversion, only people who are willing to commit more time per week are more toward paying for the courses. This experiment could cause less students to view the free courses. From Net conversion, the new feature doesn't attract more students to pay after their free courses. Besides, the negative values in the confidence intervals might be a potential concern for Udacity's profit. Since we want students be more clearer what the program requires: need at least 5 hours per week, we don't want to frustrate students by having them find out too much burden after enrolling. Thus, Udacity has less cancellation.
 
 ## Follow-Up Experiment
 
-Udacity's charging policy is a potential concern for students to pay for courses even register. My suggestion is to show Udacity's promotion policy ahead of user registration (such as 50% money back if finished within 1 year). If users can be aware of all the incentives ahead of payment, or even registration, they might be more urged to enroll.
+Udacity's charging policy is a potential concern for students to pay for courses even register. My suggestion is to show Udacity's promotion policy ahead of user registration (such as 50% money back if finished within 1 year). If users can be aware of all the incentives ahead of payment, or even registration, they might be more urged to enroll. Thus will have less students cancel their subscription.
 
-So my null hypothesis is by showing a detailed promotion/offers (such as get half back when completing within one year) will not statistically increase net conversion.
+So my null hypothesis is by showing a detailed promotion/offers (such as get half back when completing within one year) will not statistically increase net conversion .
 
 The alternate hypothesis is by showing a promotions will increase the net conversion significantly.
 
