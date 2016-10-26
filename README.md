@@ -9,7 +9,7 @@ The evaluation metrics I used are: Gross conversion, Retention, and Net conversi
 
 For each metric:
 
-Number of cookies: I chose it as invariant metric because when users browse the webpage, he/she already has one unique browser id. Thus it is independent and it will be consistent in this experiment. In the meanwhile, an invariant metric cannot both be an evaluation metric since it is dependent on the experiment.
+Number of cookies: I chose it as invariant metric because when users browse the webpage, he/she already has one unique browser id. Thus it is independent and it will be consistent in this experiment. In the meanwhile, an invariant metric cannot both be an evaluation metric because: Invariant metric is the one that won't be affected by the experiment. However, evaluation metric is the one dependent on the experiment design.
 
 Number of user-ids: user-ids are people who enrolled the course. Thus it will be affected by the experiment between the experiment and control groups. It is not chosen as evaluation metric because it is a count, instead of a percentage which can be further normalized or standardized.
 
@@ -19,7 +19,7 @@ Click-through-probability: It could be a good invariant metric but I didn't choo
 
 Gross conversion: I choose it as evaluation metric because user-ids are dependent on the effect of the experiment. And in the alternative hypothesis, we expect to see lower value in the experiment gorup, because we hypothesize that people without enough time per week will not enroll the course.
 
-Retention: This value can be a candidate of evaluation metric because it dependents on the experiment. This value is expected to be higher in the experiment group because people need to have more time commitment per week to enroll in the course, and thus make their first payment. But I feel it is overlapped with Gross conversion and Net conversion, I didn't end up choosing it as the value.
+Retention: This value can be a candidate of evaluation metric because it dependents on the experiment. This value is expected to be higher in the experiment group because people need to have more time commitment per week to enroll in the course, and thus make their first payment. But I feel it is similiar to Net conversion, and it is highly correlated with Net conversion, we can even calculated it using Net conversion and number of user-ids and cookies. I didn't end up choosing it as the value.
 
 Net conversion: I chose it as evaluation metric because it is affected by the experiment. In the experiment group, since most people can commit enough hours per week, and are more toward stay (make the first payment). So, this value should be increased, or at least not decreased.
 
@@ -39,7 +39,7 @@ I would need 685325 pageviews for a test of alpha = 0.05 and beta = 0.2.
 
 #### Duration vs. Exposure
 
-I chose to set 0.8 (80%) as the number of fraction to be exposed. Since 80% will be exposed and the subsequent impact will be minimum. It will not bring too much potential harm to Udacity's business. Furthermore, the experiment itself is not too risky because it will only be a popup message. Nothing too sensative.
+I chose to set 0.8 (80%) as the number of fraction to be exposed. Since 80% will be exposed and the subsequent impact will be minimum. It will not bring too much potential harm to Udacity's business. Furthermore, the experiment itself is not too risky because it will only be a popup message. Nothing too sensative (it does not collect users' private infomation nor any sensative information).
 
 For the duration, since I need 685325 page views in total, and 40000 people, with 80%, roughly 22 days will yield the desired results.
 
@@ -57,9 +57,9 @@ Number of clicks: Lower bound - 0.4959, Upper bound - 0.5041, Observed - 0.5005.
 
 No Bonferroni correction
 
-Gross conversion: Lower bound - -0.0291, Upper bound - -0.0120. Since 0 is not included, it is statistical significance and practical significance.
+Gross conversion: Lower bound - -0.0291, Upper bound - -0.0120. It is statistical significance and practical significance.
 
-Net conversion: Lower bound - -0.0116, Upper bound - 0.0019, since 0 is included, it is not significant.
+Net conversion: Lower bound - -0.0116, Upper bound - 0.0019, It is not significant.
 
 #### Sign Tests
 
