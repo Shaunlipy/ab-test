@@ -59,11 +59,11 @@ No Bonferroni correction
 
 Gross conversion: Lower bound - -0.0291, Upper bound - -0.0120. It is statistical significance and practical significance.
 
-Net conversion: Lower bound - -0.0116, Upper bound - 0.0019, It is not significant.
+Net conversion: Lower bound - -0.0116, Upper bound - 0.0019, It is not statistical significance. It is not practical significance.
 
 #### Sign Tests
 
-No Bonferroni correctionu
+No Bonferroni correction
 
 Gross conversion: p-value - 0.0026. It is statistical significant 
 
@@ -71,7 +71,7 @@ Net conversion: p-value - 0.6776. It is not significant.
 
 #### Summary
 
-I didn't use Bonferroni correction since there aren't too many variables to test. Besides our acceptance criteria need significance for each evaluation metric, Bonferroni correction is not a good fit for this experiment.
+I didn't use Bonferroni correction. Besides all of our metrics must launch criteria, Bonferroni correction is not a good fit for this experiment.
 
 If we use more number of metrics, we are more likely to make type I error (falsely reject the null hypothesis when the null is true. So by introducing the Bonferroni correction, we can reduce this error by reducing alpha. 
 
@@ -87,7 +87,7 @@ Simply based on this experiment, I wouldn't recommend the new feature. For the G
 
 ## Follow-Up Experiment
 
-Udacity's charging policy is a potential concern for students to pay for courses even register. My suggestion is to show Udacity's promotion policy ahead of user registration (such as 50% money back if finished within 1 year). If users can be aware of all the incentives ahead of payment, or even registration, they might be more urged to enroll. Thus will have less students cancel their subscription.
+Udacity's charging policy is a potential concern for students to pay for courses even register. My suggestion is to show Udacity's promotion policy ahead of user registration (such as 50% money back if finished within 1 year). If users can be aware of all the incentives ahead of payment, or even registration, then there might have less early cancellation.
 
 So my null hypothesis is by showing a detailed promotion/offers (such as get half back when completing within one year) will not statistically increase net conversion .
 
@@ -95,7 +95,7 @@ The alternate hypothesis is by showing a promotions will increase the net conver
 
 This experiment will be posed to students in two groups: in the experiment group, the popup message of promotions will be shown to the experiment group, whereas the control group, no messages will be shown.
 
-The unit of diversion is user-id, because we want to track if promotions will attrack more users to pay.
+The unit of diversion is number of cookies, because number of cookies is prior to the experiment.
 
 The invariant metric is number of cookies, because people will not see any messages before they browse the page.
 
